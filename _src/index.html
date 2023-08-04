@@ -1,0 +1,278 @@
+<%-
+  include('inc/_header', {header: data.header.index});
+%>
+<div class="l-contents">
+    <main role="main">
+        <section id="about" class="home-about sec js-anime-elem">
+            <div class="home-about__inner u-inner">
+                <h2 class="tit c-tit01">ABOUT</h2>
+                <p class="txt">このサイトは、エンジニアミヤケのポートフォリオサイトです。<br>これまで手掛けたwebサイト、自身のスキル・経歴をまとめています。<br>このサイトはエンジニアとしての私を知ってもらうために作りました。<br>このサイトで使用ツールは下記表にまとめています。</p> 
+            </div>
+        </section>
+        <section id="profile" class="home-profile sec js-anime-elem">
+            <div class="home-profile__inner u-inner">
+                <h2 class="tit c-tit01">PROFILE</h2>
+                <div class="home-profile__box">
+                    <picture class="img">
+                        <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/img_profile01.webp" type="image/webp">
+                        <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/img_profile01.png" alt="">
+                    </picture>
+                    <p class="txt">京都出身のエンジニアです。大学卒業、ホームセンターの販売員を早期に退職したのちに<br>職業訓練でwebデザインの基礎を学び、コーディングを主にし、コーダー・フロントエンドエンジニアとして多くのwebサイト製作に携わってきました。</p>
+                </div>
+                
+            </div>
+        </section>
+        <section id="works" class="home-works sec js-anime-elem">
+            <div class="home-works__inner u-inner">
+                <h2 class="tit c-tit01">WORKS</h2>    
+                <div class="home-works__box">
+                    <ul class="tab-list">
+                        <li class="js-switch-tab tab-list-item is-active">タブ1</li>
+                        <li class="js-switch-tab tab-list-item">タブ2</li>
+                        <li class="js-switch-tab tab-list-item">タブ3</li>
+                        <li class="js-switch-tab tab-list-item">タブ4</li>
+                    </ul>
+                    <ul class="js-switch-content js-slider slide-list is-active">
+                        <li class="slide-list__item">
+                            <a class="link" href="">
+                                <div class="img">
+                                  <img src="https://placehold.jp/400x250.png">
+                                </div>
+                                <h3 class="sub-tit">コンテント1ダミーダミーダミーダミーダミー</h3>
+                            </a>
+                        </li>
+                        <li class="slide-list__item">
+                            <a class="link" href="">
+                                <div class="img">
+                                  <img src="https://placehold.jp/400x250.png">
+                                </div>
+                                <h3 class="sub-tit">コンテント1ダミーダミーダミーダミーダミー</h3>
+                            </a>
+                        </li>
+                        <li class="slide-list__item">
+                            <a class="link" href="">
+                                <div class="img">
+                                  <img src="https://placehold.jp/400x250.png">
+                                </div>
+                                <h3 class="sub-tit">コンテント1ダミーダミーダミーダミーダミー</h3>
+                            </a>
+                        </li>
+                        <li class="slide-list__item">
+                            <a class="link" href="">
+                                <div class="img">
+                                  <img src="https://placehold.jp/400x250.png">
+                                </div>
+                                <h3 class="sub-tit">コンテント1ダミーダミーダミーダミーダミー</h3>
+                            </a>
+                        </li>
+                    </ul>
+                    <ul class="js-switch-content js-slider slide-list">
+                        <li class="slide-list__item">
+                            <div class="img">
+                              <img src="https://placehold.jp/400x250.png">
+                            </div>
+                            <h3 class="sub-tit">コンテント2ダミーダミーダミーダミーダミー</h3>
+                        </li>
+                    </ul>
+                    <ul class="js-switch-content js-slider slide-list">
+                        <li class="slide-list__item">
+                            <div class="img">
+                              <img src="https://placehold.jp/400x250.png">
+                            </div>
+                            <h3 class="sub-tit">コンテント3ダミーダミーダミーダミーダミー</h3>
+                        </li>
+                    </ul>
+                    <ul class="js-switch-content js-slider slide-list">
+                        <li class="slide-list__item">
+                            <div class="img">
+                              <img src="https://placehold.jp/400x250.png">
+                            </div>
+                            <h3 class="sub-tit">コンテント4ダミーダミーダミーダミーダミー</h3>
+                        </li>
+                    </ul>
+                </div>            
+            </div>
+        </section>
+        <section id="skill" class="home-skill sec js-anime-elem">
+            <div class="home-skill__inner u-inner">
+                <h2 class="tit c-tit01">SKILL</h2>
+                <div class="home-skill__box">
+                    <ul class="list">
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill01.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill01.png" alt="Illustrator">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">Illustrator</h3>
+                                <p class="txt">ダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミーダミー</p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill02.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill02.png" alt="Photoshop">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">Photoshop</h3>
+                                <p class="txt">ダミーダミーダミーダミーダミーダミーダミーダミーダミー</p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill03.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill3.png" alt="DreamWeaver">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">DreamWeaver</h3>
+                                <p class="txt">ダミー</p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill04.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill04.png" alt="HTML5">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">HTML5</h3>
+                                <p class="txt"></p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill05.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill05.png" alt="CSS3">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">CSS3</h3>
+                                <p class="txt"></p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill06.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill06.png" alt="JavaScript">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">JavaScript</h3>
+                                <p class="txt"></p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill07.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill07.png" alt="Sass">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">Sass</h3>
+                                <p class="txt"></p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill08.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill08.png" alt="jQuery">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">jQuery</h3>
+                                <p class="txt"></p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill09.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill09.png" alt="gulp.js">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">gulp.js</h3>
+                                <p class="txt"></p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill10.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill10.png" alt="WordPress">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">WordPress</h3>
+                                <p class="txt"></p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill11.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill11.png" alt="Git">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">Git</h3>
+                                <p class="txt"></p>
+                            </div>
+                        </li>
+                        <li class="list-item">
+                            <picture class="img">
+                                <source srcset="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill11.webp" type="image/webp">
+                                <img src="<%- data.header.index.imgSrc %>/<%- data.header.index.slug %>/ico_skill11.png" alt="Git">
+                            </picture>
+                            <div class="txt-box">
+                                <h3 class="sub-tit">SEO</h3>
+                                <p class="txt"></p>
+                            </div>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </section>
+        <section id="contact" class="home-contact sec js-anime-elem">
+            <div class="home-contact__inner u-inner">
+                <h2 class="tit c-tit01">CONTACT</h2>
+                <div class="home-contact__box c-form01">
+                    <table class="table c-form01__table">
+                        <tbody>
+                            <tr>
+                                <th>お名前</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>フリガナ</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>〒</th>
+                                <td></td>
+                            </tr>
+                            <tr>
+                                <th>住所</th>
+                                <td>
+                                    <div>
+                                        <span>都道府県</span>
+                                        <span></span>
+                                    </div>
+                                    <div>
+                                        <span>市区町村</span>
+                                        <span></span>
+                                    </div>
+                                    <div>
+                                        <span>番地など</span>
+                                        <span></span>
+                                    </div>
+                                </td>
+                            </tr>
+                            <tr>
+                                <th>内容</th>
+                                <td></td>
+                            </tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </section>
+    </main>
+</div>
+ 
+<%-
+  include('inc/_footer', {footer: data.footer});
+%>
+
+
+
+
