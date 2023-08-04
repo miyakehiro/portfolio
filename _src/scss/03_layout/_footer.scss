@@ -13,11 +13,13 @@
 /* .c-pagetop
 ================================================ */
 .ft-pagetop {
-	@include m.mq(sp) {
-		position: static !important;
+	width: 100%;
+	&.is-view{
+		position: fixed;
+		bottom: 0;
 	}
 	&__link {
-		padding: 10px 0 15px;
+		padding: 12px 0 18px;
 		color: #fff;
 		text-align: center;
 		text-decoration: none;
@@ -25,8 +27,9 @@
 		text-indent: 200%;
 		white-space: nowrap;
 		position: relative;
+		background: rgba(59, 59, 59, 0.8);
 		&::after{
-			content: '';
+		  content: '';
 		  width: 16px;
 		  height: 16px;
 		  border: 0px;
@@ -40,7 +43,11 @@
 			margin-left: -8px;
 		}
 	}
-	@include m.mq {
+	@include m.mq(tb) {
+		width: auto;
+		&.is-view{
+			right: 20px;
+		}
 		opacity: 0;
 		visibility: hidden;
 		position: fixed;
