@@ -1,7 +1,7 @@
 /*
 npm init -y
 ↓
-npm i -D gulp browser-sync gulp-ejs gulp-html-beautify gulp-connect-php gulp-notify gulp-plumber gulp-rename gulp-replace sass gulp-sass gulp-sass-glob gulp-sass-glob-use-forward gulp-autoprefixer css-declaration-sorter gulp-clean-css gulp-purgecss gulp-uglify gulp-imagemin@7.1.0 imagemin-mozjpeg@9.0.0 imagemin-pngquant@9.0.1 imagemin-svgo@9.0.0 gulp-watch
+npm i -D gulp browser-sync gulp-connect-php gulp-notify gulp-plumber gulp-rename sass gulp-sass gulp-sass-glob gulp-sass-glob-use-forward gulp-autoprefixer gulp-purgecss gulp-uglify gulp-imagemin@7.1.0 imagemin-mozjpeg@9.0.0 imagemin-pngquant@9.0.1 imagemin-svgo@9.0.0 gulp-watch
 ↓
 npx gulp
 ==============================================================*/
@@ -9,14 +9,10 @@ npx gulp
 //変数設定
 //-------------------------------------------------------------------------------
 //パッケージ群
-const browserSync = require('browser-sync');
+const browserSync = require('browser-sync').create();
 const connect = require('gulp-connect-php');
 const gulp = require('gulp');
-const ejs = require('gulp-ejs'); //EJS
-const fs = require('fs');//JSONファイル操作用
 const { dest, series } = require('gulp');
-const replace = require('gulp-replace'); 
-const htmlbeautify = require('gulp-html-beautify'); //HTML生成後のコードを綺麗にする
 const plumber = require('gulp-plumber'); //停止制御
 const notify = require('gulp-notify'); //エラー通知
 const uglify = require('gulp-uglify'); //JavaScriptファイルを圧縮
@@ -32,29 +28,28 @@ const autoprefixer = require('gulp-autoprefixer');//ベンダープレフィッ�
 const watch = require('gulp-watch'); //監視
 //入力ファイル指定
 const src = {
-  ejs: ['./_src/**/*.ejs', '!' + './_src/**/_*.ejs'],
-  json: ['./_src/json/**/*.json'],
-	sass: './_src/scss/**/*.scss',
-	js: './_src/js/*.js',
-	image: './_src/img/**/*.{png,jpg,gif,svg}',
+	sass: 'portfolio/_src/scss/**/*.scss',
+	js: 'portfolio/_src/js/*.js',
+	image: 'portfolio/_src/img/**/*.{png,jpg,gif,svg}',
 }
 
 //出力ファイル指定
 const dst = {
-	html: './dist/',
-	css: './dist/css',
-	js: './dist/js',
-	image: './dist/img',
+	css: 'portfolio/css',
+	js: 'portfolio/js',
+	image: 'portfolio/img',
 }
 
 //ブラウザーシンク　更新するたびに同期
 //-------------------------------------------------------------------------------
 const connectSync = (done) => {
+  //html,phpの際はコメントを外す↓
 	//local wordpress↓
-  connect.server({
-		port: 3000,
-		base: 'dist'
-	}, () => {
+  // connect.server({
+	// 	port: 3000,
+	// 	base: 'dist'
+	// }, () => {
+	//html,phpの際はコメントを外す↑
 		//local wordpress↑
     browserSync.init({
       // ローカルサーバー
@@ -63,7 +58,7 @@ const connectSync = (done) => {
       open: "external", 
 		});
 		//local wordpress↓
-	});
+	// });
 	//local wordpress↑
   done();
 }
@@ -75,22 +70,6 @@ const reload = (done) => {
 }
 exports.task = reload;
 
-
-//EJSルコンパイル
-//-------------------------------------------------------------------------------
-const compileHtml = () => {
-  const data = JSON.parse(fs.readFileSync('./_src/json/data.json'));
-  return gulp
-    .src(src.ejs)
-    .pipe(plumber({ errorHandler: notify.onError("Error: <%= error.message %>") }))//エラーチェック
-    .pipe(ejs(data))
-    .pipe(rename({ extname: '.html' }))
-		//browsersyncを使用しないときはコメントアウト↓
-		.pipe(browserSync.reload({ stream: true }))
-		//browsersyncを使用しないときはコメントアウト↑
-    .pipe(dest(dst.html)); //出力先
-}
-exports.task = compileHtml;
 
 //scssファイルコンパイル
 //-------------------------------------------------------------------------------
@@ -170,13 +149,12 @@ exports.task = images;
 //タスクを監視
 //-------------------------------------------------------------------------------
 const checkWatch = (done) => {
-  gulp.watch(['./_src/**/*.ejs', '!' + './_src/**/_*.ejs', './_src/json/**/*.json'], compileHtml);
   gulp.watch(src.sass, compileSass);
   gulp.watch(src.js, compileJs);
   gulp.watch(src.image, images);
-  gulp.watch('dist/**/*.html', reload);
+	gulp.watch('portfolio/**/*.php', reload);
   done();
 }
 exports.task = checkWatch;
 
-exports.default = series(connectSync, compileHtml, compileSass, images, compileJs, checkWatch);
+exports.default = series(connectSync, compileSass, images, compileJs, checkWatch);

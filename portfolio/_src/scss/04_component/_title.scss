@@ -1,0 +1,10 @@
+@use "./01_setting/_mixin.scss" as m;
+@use "./01_setting/_var.scss" as v;
+/*
+title
+-------------------------------------- */
+.c-tit01{
+  font-size: clamp(2rem, 3vw, 2.6rem);
+  font-weight: 700;
+  text-align: center;
+}
