@@ -25,26 +25,6 @@ if ( is_front_page() ) { //HOME
 	$page_tit = $site_tit;
 	$page_dsc = $site_dsc;
 	$page_kwd = $site_kwd;
-} elseif ( is_home() ) {
-	$page_tit = '記事一覧' . '｜' . $site_tit;
-	$page_dsc = '記事一覧' . '｜' . $site_dsc;
-	$page_kwd = '記事一覧,' . $site_kwd;
-} elseif ( is_singular( 'post' ) || is_category() || is_tag() ) { //投稿
-	$page_tit = wp_title( '', 0 ) . '｜記事一覧｜' . $site_tit;
-	$page_dsc = wp_title( '', 0 ) . '｜記事一覧｜' . $site_dsc;
-	$page_kwd = '記事一覧,' . $site_kwd;
-} elseif ( is_post_type_archive() ) { //カスタム投稿アーカイブ
-	$page_tit = esc_html( get_post_type_object( get_post_type() )->label ) . '｜' . $site_tit;
-	$page_dsc = esc_html( get_post_type_object( get_post_type() )->label ) . '｜' . $site_dsc;
-	$page_kwd = esc_html( get_post_type_object( get_post_type() )->label ) . ',' . $site_kwd;
-} elseif ( is_tax() ) { //タクソノミーアーカイブ
-	$page_tit = wp_title( '', 0 ) . '｜' . esc_html( get_post_type_object( get_post_type() )->label ) . '｜' . $site_tit;
-	$page_dsc = wp_title( '', 0 ) . '｜' . esc_html( get_post_type_object( get_post_type() )->label ) . '｜' . $site_dsc;
-	$page_kwd = wp_title( '', 0 ) . ',' . esc_html( get_post_type_object( get_post_type() )->label ) . ',' . $site_kwd;
-} elseif ( !is_page() || is_single() ) { //カスタム投稿記事
-	$page_tit = wp_title( '', 0 ) . '｜' . esc_html( get_post_type_object( get_post_type() )->label ) . '｜' . $site_tit;
-	$page_dsc = wp_title( '', 0 ) . '｜' . esc_html( get_post_type_object( get_post_type() )->label ) . '｜' . $site_dsc;
-	$page_kwd = esc_html( get_post_type_object( get_post_type() )->label ) . ',' . $site_kwd;
 } elseif( is_page() && $post->post_parent ) { //子ページ
 	// 親を全て取得して配列に登録
 	$parents = get_page_parent( $post->post_parent, true, false );
@@ -83,21 +63,6 @@ if ( is_category() || is_tag() || is_tax() ) {
 	$main_tag = 'p';
 } else {
 	$main_tag = 'h1';
-}
-//main_txt
-if ( is_home() || is_singular( 'post' ) || is_category() || is_tag() ) {
-	$main_txt = '記事一覧';
-} elseif ( is_post_type_archive() || is_tax() || is_singular() && !is_page() ) {
-	$main_txt = esc_html( get_post_type_object( get_post_type() )->label );
-} else {
-	$main_txt = wp_title( '', 0 );
-}
-
-//page_column
-if ( is_home() || is_category() || is_tag() || is_singular( 'post' ) ) {
-	$page_column = 2;
-} else {
-	$page_column = 1;
 }
 
 //canonical
@@ -140,44 +105,12 @@ $page_image = get_stylesheet_directory_uri(). 'screenshot.png';
 	<link rel="canonical" href="<?php echo $page_url; ?>">
 	<?php wp_enqueue_script( 'jquery' ); ?>
 	<?php wp_head(); ?>
-	<!-- Google 構造化データ マークアップ支援ツールが生成した JSON-LD マークアップです。 -->
-	<script type="application/ld+json">
-	{
-		"@context" : "http://schema.org",
-		"@type" : "Organization",
-		"name" : "会社名",
-		"image" : "<?php echo $page_image; ?>",
-		"telephone" : "電話番号",
-		"faxNumber" : "ファックス番号",
-		"priceRange" : "¥¥¥",
-		"address" : {
-			"@type" : "PostalAddress",
-			"postalCode" : "郵便番号",
-			"addressCountry" : "JP",
-			"addressRegion" : "京都府",
-			"addressLocality" : "市",
-			"streetAddress" : "その他住所"
-		},
-		"openingHoursSpecification":[
-			{
-				"@type":"OpeningHoursSpecification",
-				"dayOfWeek":[
-					"Monday",
-					"Tuesday",
-					"Wednesday",
-					"Thursday",
-					"Friday",
-					"Saturday"
-				],
-				"opens":"9:00",
-				"closes":"18:00"
-			}
-		],
-		"url" : "<?php echo $page_url; ?>"
-	}
-	</script>
 </head>
 <body id="<?php echo $page_slug; ?>" class="js-anime">
+<!-- ローディング画面 -->
+<div class="loading">
+	<div class="loading__logo"></div>
+</div>
 <div class="js-media-query u-media-query"></div>
 <div class="js-nav-overlay nav-overlay"></div>
 <div class="l-wrapper">

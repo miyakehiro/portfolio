@@ -24,6 +24,7 @@
             <div class="home-works__inner u-inner">
                 <h2 class="tit c-tit01">WORKS</h2>    
                 <div class="home-works__box">
+                    <p class="txt">これまで製作したwebサイトを勤めていた企業別にまとめています。<br>掲載している実績によっては、リニュアルされたり、サイト自体が存在してない場合があります。</p>
                     <?php
                         $taxonomy_slug = 'achievement_cat'; // カスタムタクソノミーのスラッグを指定
                         $post_type_slug = 'achievement'; // 投稿タイプのスラッグを指定
@@ -48,11 +49,13 @@
                             );
                             $myquery = new WP_Query( $args );
                         ?>
-                            <ul class="js-switch-content js-slider slide-list panel<?php if( $value === reset($terms) ) : ?> is-active<?php endif; ?>">
+                            <ul class="js-switch-content js-slider slide-list <?php echo $term_slug; ?><?php if( $value === reset($terms) ) : ?> is-active<?php endif; ?>">
                                 <?php if ( $myquery->have_posts()): ?>
                                     <?php while($myquery->have_posts()): $myquery->the_post(); ?>
                                         <li class="slide-list__item">
-                                            <a class="link" href="<?php the_field('url'); ?>">
+                                        <?php if( get_field('url') ):?>
+                                            <a class="link" href="<?php the_field('url'); ?>" target="_blank">
+                                        <?php endif; ?>
                                                 <div class="img">
                                                     <?php
                                                         $image_id = get_post_thumbnail_id();
@@ -65,7 +68,9 @@
                                                     <?php endif; ?>
                                                 </div>
                                                 <h3 class="sub-tit"><?php the_title(); ?></h3>
+                                        <?php if( get_field('url') ):?>
                                             </a>
+                                        <?php endif; ?>
                                         </li>
                                     <?php endwhile; ?>
                                 <?php endif; ?>
@@ -228,7 +233,7 @@
             <div class="home-contact__inner u-inner">
                 <h2 class="tit c-tit01">CONTACT</h2>
                 <div class="home-contact__box c-form01">
-                <?php echo do_shortcode('[mwform_formkey key="16"]'); ?>
+                <?php echo do_shortcode('[mwform_formkey key="9"]'); ?>
                 </div>
             </div>
         </section>
@@ -236,5 +241,3 @@
 </div>
 <!-- /.l-contents -->
 <?php get_footer(); ?>
-
-

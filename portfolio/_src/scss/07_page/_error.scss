@@ -1,0 +1,36 @@
+@use "./01_setting/_mixin.scss" as m;
+@use "./01_setting/_var.scss" as v;
+
+#error{
+	#page404{
+		padding: 60px 0;
+        .error-page404__head{
+            font-size: clamp(2rem,3vw,2.6rem);
+            font-weight: 700;
+            text-align: center;
+        }
+        .error-page404__txt{
+            margin-top: 30px;
+            text-align: center;
+        }
+        .error-page404__btn{
+            margin-top: 20px;
+        }
+		@include m.mq(tb){
+			padding: 85px 0;
+            .error-page404__txt{
+                margin-top: 40px;
+            }
+		}
+		@include m.mq(pc){
+			padding: 140px 0;
+            .error-page404__txt{
+                margin-top: 60px;
+            }
+		}
+	}
+}
+
+	
+
+

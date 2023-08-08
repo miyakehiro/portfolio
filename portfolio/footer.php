@@ -30,6 +30,12 @@
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/slick.min.js"></script>
 <script src="<?php echo get_stylesheet_directory_uri(); ?>/js/ajaxzip3.js"></script>
 <script type="text/javascript">
+	//logoの表示
+	$(window).on('load',function(){
+		$(".loading").delay(1500).fadeOut('slow');//ローディング画面を1.5秒（1500ms）待機してからフェードアウト
+	});
+</script>
+<script type="text/javascript">
 	$(function () {
 		function sliderSetting(){
 			const width = $(window).width();
@@ -55,11 +61,11 @@
 	});
 </script>
 <script type="text/javascript">
-jQuery(function( $ ) {
-    jQuery( '#zip' ).keyup( function( e ) {
-        AjaxZip3.zip2addr(this,'','prefecture','address1');
-    } )
-} );
+	jQuery(function( $ ) {
+		jQuery( '#zip' ).keyup( function( e ) {
+			AjaxZip3.zip2addr(this,'','prefecture','address1');
+		} )
+	} );
 </script>
 </body>
 </html>
