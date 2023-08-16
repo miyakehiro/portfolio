@@ -40,10 +40,10 @@
 		function sliderSetting(){
 			const width = $(window).width();
 			if(width <= 600){
-				$('.js-slider').slick({
+				$('.js-slider.company3,.js-slider.company4').slick({
 					arrows: true,
-					dots: true, 
 					autoplay: true,
+					autoplaySpeed:5000,
 					speed: 1500,
 					slidesToShow: 1,
 					centerMode: true,

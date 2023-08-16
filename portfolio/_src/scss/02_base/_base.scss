@@ -74,9 +74,9 @@ img {
 .l-wrapper {
 	position: relative;
 }
-.l-container {
-	padding: 20px 0 80px;
-	@include m.mq {
-		padding: 30px 0 80px;
+.l-contents {
+	padding: 40px 0 80px;
+	@include m.mq(tb) {
+		padding: 100px 0 140px;
 	}
 }

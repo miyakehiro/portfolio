@@ -4,7 +4,7 @@
         <section id="about" class="home-about sec js-anime-elem">
             <div class="home-about__inner u-inner">
                 <h2 class="tit c-tit01">ABOUT</h2>
-                <p class="txt">このサイトは、エンジニアミヤケのポートフォリオサイトです。<br>これまで手掛けたwebサイト、自身のスキル・経歴をまとめています。<br>このサイトはエンジニアとしての私を知ってもらうために作りました。<br>このサイトで使用ツールは下記表にまとめています。</p> 
+                <p class="txt">このサイトは、エンジニアミヤケのポートフォリオサイトです。<br>これまで手掛けたwebサイト、自身のスキル・経歴をまとめています。<br>このサイトはエンジニアとしての私を知ってもらうために作りました。</p> 
             </div>
         </section>
         <section id="profile" class="home-profile sec js-anime-elem">
@@ -58,7 +58,7 @@
                                         <?php endif; ?>
                                                 <div class="img">
                                                     <?php
-                                                        $image_id = get_post_thumbnail_id();
+                                                        $image_id = get_the_post_thumbnail_url();
                                                         $image_url = wp_get_attachment_image_src($image_id, 'w200h300');
                                                     ?>
                                                     <?php if($image_id): ?>
@@ -233,7 +233,7 @@
             <div class="home-contact__inner u-inner">
                 <h2 class="tit c-tit01">CONTACT</h2>
                 <div class="home-contact__box c-form01">
-                <?php echo do_shortcode('[mwform_formkey key="9"]'); ?>
+                <?php echo do_shortcode('[mwform_formkey key="123"]'); ?>
                 </div>
             </div>
         </section>
