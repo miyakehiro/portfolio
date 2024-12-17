@@ -1,3 +1,5 @@
+@use "../01_setting/_mixin.scss" as m;
+@use "../01_setting/_var.scss" as v;
 
 .c-form01{
 	/*フォームリセット*/
