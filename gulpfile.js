@@ -20,7 +20,7 @@ const sass = gulpSass(sassCompiler);
 
 // 入出力ファイル指定
 const src = {
-  ejs: ['./_src/**/*.ejs', '!' + './_src/**/_*.ejs'],
+  ejs: ['./_src/**/*.ejs'],
   json: ['./_src/json/**/*.json'],
   sass: './_src/scss/**/*.scss',
   js: './_src/js/*.js',

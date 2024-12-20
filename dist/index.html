@@ -90,71 +90,27 @@
         </section>
         <section id="works" class="home-works sec js-anime-elem">
             <div class="home-works__inner u-inner">
-                <h2 class="tit c-tit01">WORKS</h2>    
+                <h2 class="tit c-tit01">WORKS</h2>  
                 <div class="home-works__box">
-                    <ul class="tab-list">
-                        <li class="js-switch-tab tab-list-item is-active">タブ1</li>
-                        <li class="js-switch-tab tab-list-item">タブ2</li>
-                        <li class="js-switch-tab tab-list-item">タブ3</li>
-                        <li class="js-switch-tab tab-list-item">タブ4</li>
+                    <div class="tab-scroll">
+                        <ul class="tab-list">
+                            <li class="js-switch-tab tab-list-item is-active">weave</li>
+                            <li class="js-switch-tab tab-list-item">M-HAND</li>
+                            <li class="js-switch-tab tab-list-item">システムクリエイト</li>
+                            <li class="js-switch-tab tab-list-item">ノース・ヒル</li>
+                            <li class="js-switch-tab tab-list-item">ekzm</li>
+                        </ul>
+
+                    </div>
+                    <ul id="js-works01" class="js-switch-content js-works01 slide-list text-list is-active">
                     </ul>
-                    <ul class="js-switch-content js-slider slide-list is-active">
-                        <li class="slide-list__item">
-                            <a class="link" href="">
-                                <div class="img">
-                                  <img src="https://placehold.jp/400x250.png">
-                                </div>
-                                <h3 class="sub-tit">コンテント1ダミーダミーダミーダミーダミー</h3>
-                            </a>
-                        </li>
-                        <li class="slide-list__item">
-                            <a class="link" href="">
-                                <div class="img">
-                                  <img src="https://placehold.jp/400x250.png">
-                                </div>
-                                <h3 class="sub-tit">コンテント1ダミーダミーダミーダミーダミー</h3>
-                            </a>
-                        </li>
-                        <li class="slide-list__item">
-                            <a class="link" href="">
-                                <div class="img">
-                                  <img src="https://placehold.jp/400x250.png">
-                                </div>
-                                <h3 class="sub-tit">コンテント1ダミーダミーダミーダミーダミー</h3>
-                            </a>
-                        </li>
-                        <li class="slide-list__item">
-                            <a class="link" href="">
-                                <div class="img">
-                                  <img src="https://placehold.jp/400x250.png">
-                                </div>
-                                <h3 class="sub-tit">コンテント1ダミーダミーダミーダミーダミー</h3>
-                            </a>
-                        </li>
+                    <ul id="js-works02" class="js-switch-content js-works02 slide-list text-list">
                     </ul>
-                    <ul class="js-switch-content js-slider slide-list">
-                        <li class="slide-list__item">
-                            <div class="img">
-                              <img src="https://placehold.jp/400x250.png">
-                            </div>
-                            <h3 class="sub-tit">コンテント2ダミーダミーダミーダミーダミー</h3>
-                        </li>
+                    <ul id="js-works03" class="js-switch-content js-slider slide-list">
                     </ul>
-                    <ul class="js-switch-content js-slider slide-list">
-                        <li class="slide-list__item">
-                            <div class="img">
-                              <img src="https://placehold.jp/400x250.png">
-                            </div>
-                            <h3 class="sub-tit">コンテント3ダミーダミーダミーダミーダミー</h3>
-                        </li>
+                    <ul id="js-works04" class="js-switch-content slide-list">
                     </ul>
-                    <ul class="js-switch-content js-slider slide-list">
-                        <li class="slide-list__item">
-                            <div class="img">
-                              <img src="https://placehold.jp/400x250.png">
-                            </div>
-                            <h3 class="sub-tit">コンテント4ダミーダミーダミーダミーダミー</h3>
-                        </li>
+                    <ul id="js-works05" class="js-switch-content slide-list">
                     </ul>
                 </div>            
             </div>
@@ -453,32 +409,8 @@
     </div>
     <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
     <script src="js/common.min.js"></script>
+    <script src="js/works.min.js"></script>
     <script src="js/slick.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            function sliderSetting(){
-	            const width = $(window).width();
-                if(width <= 600){
-                    $('.js-slider').slick({
-                        arrows: true,
-                        dots: true, 
-                        autoplay: true,
-                        speed: 1500,
-                        slidesToShow: 1,
-                        centerMode: true,
-                        centerPadding: '30px',
-                    });
-                }
-                 $('.tab-list > li').click(function () {
-                    $('.js-slider').slick('setPosition');
-                });
-            }
-            sliderSetting();
-            $(window).resize(function(){
-                sliderSetting();
-            });
-        });
-    </script>
 </body>
 </html>
 </head>

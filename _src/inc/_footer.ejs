@@ -26,32 +26,8 @@
     </div>
     <script src="https://code.jquery.com/jquery-2.2.2.min.js"></script>
     <script src="<%- data.footer.jsSrc %>/common.min.js"></script>
+    <script src="<%- data.footer.jsSrc %>/works.min.js"></script>
     <script src="<%- data.footer.jsSrc %>/slick.min.js"></script>
-    <script type="text/javascript">
-        $(function () {
-            function sliderSetting(){
-	            const width = $(window).width();
-                if(width <= 600){
-                    $('.js-slider').slick({
-                        arrows: true,
-                        dots: true, 
-                        autoplay: true,
-                        speed: 1500,
-                        slidesToShow: 1,
-                        centerMode: true,
-                        centerPadding: '30px',
-                    });
-                }
-                 $('.tab-list > li').click(function () {
-                    $('.js-slider').slick('setPosition');
-                });
-            }
-            sliderSetting();
-            $(window).resize(function(){
-                sliderSetting();
-            });
-        });
-    </script>
 </body>
 </html>
 </head>

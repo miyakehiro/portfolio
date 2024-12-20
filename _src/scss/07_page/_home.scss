@@ -84,12 +84,15 @@
 #home .home-works{
 	&__box{
 		margin-top: 30px;
+		.tab-scroll{
+			overflow-x: scroll;
+		}
 		.tab-list{
 			display: flex;
 			box-sizing: border-box;
+			width: 500px;
+			gap: 0 25px;
 			&-item{
-				width: 25%;
-				text-align: center;
 				position: relative;
 				padding-bottom: 5px;
 				&.is-active{
@@ -116,6 +119,31 @@
 		}
 		.slide-list{
 			margin: 15px -20px 0;	
+			&.text-list{
+				.slide-list__item{
+					width: auto;
+					border-bottom: 1px solid #333;
+					.link{
+						text-decoration: underline;
+						&::before{
+							display: none;
+							position: static;
+						}
+						&:hover{
+							text-decoration: none;
+						}
+						.sub-tit{
+							margin-top: 0;
+							padding: 10px 10px 8px;
+							text-align: left;
+						}
+					}
+					.link[href=""]{
+						text-decoration: none;
+						pointer-events: none;
+					}
+				}
+			}
 			&__item{
 				margin: 0 10px;
 				.link{
@@ -166,6 +194,7 @@
 				}
 			}
 			.slick-dots{
+				bottom: -50px;
 				&>li{
 					&:only-child{
 						display: none;
@@ -195,14 +224,37 @@
 	@include m.mq(tb){
 		&__box{
 			margin-top: 40px;
+			.tab-scroll{
+				overflow-x: auto;
+			}
+			.tab-list{
+				width: auto;
+				gap: 0;
+				&-item{
+					width: 20%;
+					text-align: center;
+				}
+			}
 			.slide-list{
 				flex-wrap: wrap;
-				justify-content: space-between;
 				box-sizing: border-box;
-				gap: 0 15px;
+				justify-content: space-between;
 				margin: 20px 0 0;
 				&.is-active{
 					display: flex;
+				}
+				&.text-list{
+					&.is-active{
+						display: block;
+					}
+					.slide-list__item{
+						margin-top: 0;
+						font-size: 1.4rem;
+						letter-spacing: normal;
+						.link{
+							text-decoration: underline;
+						}
+					}
 				}
 				&__item{
 					width: calc(50% - 15px);
@@ -217,7 +269,13 @@
 	@media (min-width: 800px){
 		&__box{
 			.slide-list{
-				gap: 0 20px;
+				justify-content: flex-start;
+				gap: 0 30px;
+				&.text-list{
+					.slide-list__item{
+						margin: 0;
+					}
+				}
 				&__item{
 					width: calc(33.333% - 20px);
 					margin: 0;
