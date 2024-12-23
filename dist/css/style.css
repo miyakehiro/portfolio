@@ -574,10 +574,11 @@ img {
 }
 .l-main-img-inner .main-txt {
   padding-bottom: 5px;
-  font-size: clamp(1.8rem, 3vw, 3rem);
+  font-size: clamp(2.6rem, 4vw, 5rem);
   text-align: center;
   font-weight: 700;
-  text-shadow: 2px 1px 20px rgba(0, 0, 0, 0.4);
+  color: #fff;
+  text-shadow: 2px 1px 2px rgba(0, 0, 0, 0.6);
 }
 @media all and (min-width: 600px) {
   .l-main-img-inner .main-txt {
@@ -1017,9 +1018,14 @@ talbe
 title
 -------------------------------------- */
 .c-tit01 {
-  font-size: clamp(2rem, 3vw, 2.6rem);
-  font-weight: 700;
   text-align: center;
+}
+.c-tit01__en {
+  font-size: clamp(2.2rem, 4vw, 3.2rem);
+  font-weight: 700;
+}
+.c-tit01__ja {
+  font-size: clamp(1rem, 4vw, 1.2rem);
 }
 
 /*
@@ -1367,7 +1373,7 @@ animation
 }
 @media all and (min-width: 1200px) {
   #home .sec + .sec {
-    padding: 240px 0;
+    padding: 120px 0;
   }
 }
 
@@ -1462,41 +1468,77 @@ animation
 #home .home-works__box .tab-list-item:hover::before {
   opacity: 0.4;
 }
-#home .home-works__box .slide-list {
+#home .home-works__box .list-box.is-active {
+  display: block;
+}
+#home .home-works__box .list {
   margin: 15px -20px 0;
 }
-#home .home-works__box .slide-list.text-list .slide-list__item {
+#home .home-works__box .list.text-list .list__item {
   width: auto;
   border-bottom: 1px solid #333;
 }
-#home .home-works__box .slide-list.text-list .slide-list__item .link {
+#home .home-works__box .list.text-list .list__item .link {
   text-decoration: underline;
 }
-#home .home-works__box .slide-list.text-list .slide-list__item .link::before {
+#home .home-works__box .list.text-list .list__item .link::before {
   display: none;
   position: static;
 }
-#home .home-works__box .slide-list.text-list .slide-list__item .link:hover {
+#home .home-works__box .list.text-list .list__item .link:hover {
   text-decoration: none;
 }
-#home .home-works__box .slide-list.text-list .slide-list__item .link .sub-tit {
+#home .home-works__box .list.text-list .list__item .link .sub-tit {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  height: 64px;
   margin-top: 0;
-  padding: 10px 10px 8px;
   text-align: left;
 }
-#home .home-works__box .slide-list.text-list .slide-list__item .link[href=""] {
+#home .home-works__box .list.text-list .list__item .link .sub-tit.create, #home .home-works__box .list.text-list .list__item .link .sub-tit.update {
+  padding-left: 45px;
+}
+#home .home-works__box .list.text-list .list__item .link .sub-tit.create::before, #home .home-works__box .list.text-list .list__item .link .sub-tit.create::after, #home .home-works__box .list.text-list .list__item .link .sub-tit.update::before, #home .home-works__box .list.text-list .list__item .link .sub-tit.update::after {
+  top: 12px;
+  left: 0;
+  width: 38px;
+  height: 18px;
+  margin-top: -9px;
+  margin-left: 0;
+}
+#home .home-works__box .list.text-list .list__item .link .sub-tit.create::before {
+  top: 50%;
+  left: 0;
+}
+#home .home-works__box .list.text-list .list__item .link .sub-tit.create.update::after {
+  top: 33px;
+  margin: 0;
+}
+#home .home-works__box .list.text-list .list__item .link .sub-tit.update::after {
+  top: 50%;
+  left: 0;
+}
+#home .home-works__box .list.text-list .list__item .link .sub-tit.update.create::before {
+  top: 12px;
+  margin: 0;
+}
+#home .home-works__box .list.text-list .list__item .link[href=""] {
   text-decoration: none;
   pointer-events: none;
 }
-#home .home-works__box .slide-list__item {
+#home .home-works__box .list .slick-track {
+  padding-bottom: 30px;
+}
+#home .home-works__box .list__item {
   margin: 0 10px;
 }
-#home .home-works__box .slide-list__item .link {
+#home .home-works__box .list__item .link {
   display: block;
   text-decoration: none;
   position: relative;
 }
-#home .home-works__box .slide-list__item .link::before {
+#home .home-works__box .list__item .link::before {
   display: block;
   content: "";
   position: absolute;
@@ -1508,49 +1550,80 @@ animation
   opacity: 0;
   transition: all 0.3s ease;
 }
-#home .home-works__box .slide-list__item .link:hover::before {
+#home .home-works__box .list__item .link:hover::before {
   opacity: 0.4;
 }
-#home .home-works__box .slide-list__item .link .sub-tit {
+#home .home-works__box .list__item .link .sub-tit {
   margin-top: 10px;
   text-align: center;
+  line-height: 1.5;
 }
-#home .home-works__box .slide-list .slick-arrow {
+#home .home-works__box .list__item .link .sub-tit.create, #home .home-works__box .list__item .link .sub-tit.update {
+  position: relative;
+}
+#home .home-works__box .list__item .link .sub-tit.create::before, #home .home-works__box .list__item .link .sub-tit.create::after, #home .home-works__box .list__item .link .sub-tit.update::before, #home .home-works__box .list__item .link .sub-tit.update::after {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 30px;
+  left: 50%;
+  width: 38px;
+  height: 20px;
+  margin-left: -44px;
+  border-radius: 5px;
+  font-size: clamp(1rem, 4vw, 1.2rem);
+  line-height: 1;
+  text-align: center;
+  color: #fff;
+}
+#home .home-works__box .list__item .link .sub-tit.create::before {
+  content: "製作";
+  background-color: #ec8f15;
+}
+#home .home-works__box .list__item .link .sub-tit.create.update::after {
+  margin-left: 4px;
+}
+#home .home-works__box .list__item .link .sub-tit.update::after {
+  content: "管理";
+  background-color: #061df0;
+}
+#home .home-works__box .list .slick-arrow {
   z-index: 50;
   top: calc(50% - 8vw);
   border-top: 1px solid #333;
   border-left: 1px solid #333;
 }
-#home .home-works__box .slide-list .slick-arrow.slick-prev {
+#home .home-works__box .list .slick-arrow.slick-prev {
   left: 15px;
   transform: rotate(-45deg);
 }
-#home .home-works__box .slide-list .slick-arrow.slick-prev::before {
+#home .home-works__box .list .slick-arrow.slick-prev::before {
   content: "";
 }
-#home .home-works__box .slide-list .slick-arrow.slick-next {
+#home .home-works__box .list .slick-arrow.slick-next {
   right: 15px;
   transform: rotate(135deg);
 }
-#home .home-works__box .slide-list .slick-arrow.slick-next::before {
+#home .home-works__box .list .slick-arrow.slick-next::before {
   content: "";
 }
-#home .home-works__box .slide-list .slick-dots {
+#home .home-works__box .list .slick-dots {
   bottom: -50px;
 }
-#home .home-works__box .slide-list .slick-dots > li:only-child {
+#home .home-works__box .list .slick-dots > li:only-child {
   display: none;
 }
-#home .home-works__box .slide-list .slick-dots li {
+#home .home-works__box .list .slick-dots li {
   width: 10px;
   height: 10px;
   margin: 0 8px;
 }
-#home .home-works__box .slide-list .slick-dots li button {
+#home .home-works__box .list .slick-dots li button {
   width: 10px;
   height: 10px;
 }
-#home .home-works__box .slide-list .slick-dots li button::before {
+#home .home-works__box .list .slick-dots li button::before {
   display: block;
   content: "";
   background: #333;
@@ -1573,51 +1646,84 @@ animation
     width: 20%;
     text-align: center;
   }
-  #home .home-works__box .slide-list {
+  #home .home-works__box .list {
+    display: flex;
     flex-wrap: wrap;
     box-sizing: border-box;
     justify-content: space-between;
     margin: 20px 0 0;
   }
-  #home .home-works__box .slide-list.is-active {
-    display: flex;
-  }
-  #home .home-works__box .slide-list.text-list.is-active {
+  #home .home-works__box .list.text-list {
     display: block;
   }
-  #home .home-works__box .slide-list.text-list .slide-list__item {
+  #home .home-works__box .list.text-list .list__item {
     margin-top: 0;
     font-size: 1.4rem;
     letter-spacing: normal;
   }
-  #home .home-works__box .slide-list.text-list .slide-list__item .link {
+  #home .home-works__box .list.text-list .list__item .link {
     text-decoration: underline;
   }
-  #home .home-works__box .slide-list__item {
+  #home .home-works__box .list__item {
     width: calc(50% - 15px);
     margin: 0;
   }
-  #home .home-works__box .slide-list__item:nth-child(n+3) {
-    margin-top: 20px;
+  #home .home-works__box .list__item:nth-child(n+3) {
+    margin-top: 60px;
+  }
+  #home .home-works__box .list__item .link .sub-tit.create::before, #home .home-works__box .list__item .link .sub-tit.create::after, #home .home-works__box .list__item .link .sub-tit.update::before, #home .home-works__box .list__item .link .sub-tit.update::after {
+    top: auto;
+    bottom: -30px;
+    margin-left: -42px;
+  }
+  #home .home-works__box .list__item .link .sub-tit.create.update::after {
+    margin-left: 5px;
   }
 }
 @media (min-width: 800px) {
-  #home .home-works__box .slide-list {
+  #home .home-works__box .list {
     justify-content: flex-start;
     gap: 0 30px;
   }
-  #home .home-works__box .slide-list.text-list .slide-list__item {
+  #home .home-works__box .list.text-list .list__item {
     margin: 0;
   }
-  #home .home-works__box .slide-list__item {
+  #home .home-works__box .list.text-list .list__item .link.create, #home .home-works__box .list.text-list .list__item .link.update {
+    position: relative;
+    padding-left: 50px;
+  }
+  #home .home-works__box .list.text-list .list__item .link.create::before, #home .home-works__box .list.text-list .list__item .link.create::after, #home .home-works__box .list.text-list .list__item .link.update::before, #home .home-works__box .list.text-list .list__item .link.update::after {
+    top: 12px;
+    width: 38px;
+    height: 22px;
+    margin-top: -11px;
+  }
+  #home .home-works__box .list.text-list .list__item .link.create::before {
+    top: 50%;
+  }
+  #home .home-works__box .list.text-list .list__item .link.create.update::after {
+    top: 34px;
+    margin: 0;
+  }
+  #home .home-works__box .list.text-list .list__item .link.update::after {
+    top: 50%;
+  }
+  #home .home-works__box .list.text-list .list__item .link.update.create::before {
+    top: 8px;
+  }
+  #home .home-works__box .list__item {
     width: calc(33.333% - 20px);
     margin: 0;
   }
-  #home .home-works__box .slide-list__item:nth-child(n+3) {
+  #home .home-works__box .list__item:nth-child(n+3) {
     margin-top: 0;
   }
-  #home .home-works__box .slide-list__item:nth-child(n+4) {
-    margin-top: 40px;
+  #home .home-works__box .list__item:nth-child(n+4) {
+    margin-top: 60px;
+  }
+  #home .home-works__box .list__item .link .sub-tit.create::before, #home .home-works__box .list__item .link .sub-tit.create::after, #home .home-works__box .list__item .link .sub-tit.update::before, #home .home-works__box .list__item .link .sub-tit.update::after {
+    width: 38px;
+    height: 22px;
   }
 }
 

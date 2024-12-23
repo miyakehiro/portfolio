@@ -16,10 +16,10 @@
                 const item = work_json[i];
                 const imgHtml = item.img ? `<div class="img"><img src="${item.img}" alt="${item.title}"></div>` : '';
                 html += `
-                <li class="slide-list__item">
+                <li class="list__item">
                     <a class="link" href="${item.link}">
                         ${imgHtml}
-                        <h3 class="sub-tit">${item.title}</h3>
+                        <h3 class="sub-tit ${item.create} ${item.update}">${item.title}</h3>
                     </a>
                 </li>
                 `;

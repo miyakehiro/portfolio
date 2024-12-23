@@ -14,7 +14,7 @@
 		}
 		@include m.mq(pc){
 			+.sec{
-				padding: 240px 0;
+				padding: 120px 0;
 			}
 		}
 	}
@@ -117,10 +117,15 @@
 				}
 			}
 		}
-		.slide-list{
+		.list-box{
+			&.is-active{
+				display: block;
+			}
+		}
+		.list{
 			margin: 15px -20px 0;	
 			&.text-list{
-				.slide-list__item{
+				.list__item{
 					width: auto;
 					border-bottom: 1px solid #333;
 					.link{
@@ -131,11 +136,49 @@
 						}
 						&:hover{
 							text-decoration: none;
-						}
+						}						
 						.sub-tit{
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							height: 64px;
 							margin-top: 0;
-							padding: 10px 10px 8px;
 							text-align: left;
+							&.create, &.update{
+								padding-left: 45px;
+								&::before,&::after{
+								top: 12px;
+								left: 0;
+								width: 38px;
+								height: 18px;
+								margin-top: -9px;
+								margin-left: 0;
+								}
+							}
+							&.create{
+								&::before{
+									top: 50%;
+									left: 0;
+								}
+								&.update{
+									&::after{
+										top: 33px;
+										margin: 0;
+									}
+								}
+							}
+							&.update{
+								&::after{
+									top: 50%;
+									left: 0;
+								}
+								&.create{
+									&::before{
+										top: 12px;
+										margin: 0;
+									}
+								}
+							}
 						}
 					}
 					.link[href=""]{
@@ -143,6 +186,9 @@
 						pointer-events: none;
 					}
 				}
+			}
+			.slick-track{
+				padding-bottom: 30px;
 			}
 			&__item{
 				margin: 0 10px;
@@ -170,6 +216,45 @@
 					.sub-tit{
 						margin-top: 10px;
 						text-align: center;
+						line-height: 1.5;
+						&.create, &.update{
+							position: relative;
+							&::before,&::after{
+							   display: flex;
+							   align-items: center;
+							   justify-content: center;
+							   position: absolute;
+							   top: 30px;
+							   left: 50%;
+							   width: 38px;
+							   height: 20px;
+							   margin-left: -44px;
+							   border-radius: 5px;
+							   font-size: clamp(1rem, 4vw, 1.2rem);
+							   line-height: 1;
+							   text-align: center;
+							   color: #fff;
+							}
+						}
+						&.create{
+							&::before{
+								content: "製作";
+								background-color: #ec8f15;
+							}
+							&.update{
+								&::after{
+									margin-left: 4px;
+								}
+							}
+						}
+						&.update{
+							&::after{
+								content: "管理";
+								background-color: #061df0;
+							}
+							&.create{
+							}
+						}
 					}
 				}
 			}
@@ -235,19 +320,15 @@
 					text-align: center;
 				}
 			}
-			.slide-list{
+			.list{
+				display: flex;
 				flex-wrap: wrap;
 				box-sizing: border-box;
 				justify-content: space-between;
 				margin: 20px 0 0;
-				&.is-active{
-					display: flex;
-				}
 				&.text-list{
-					&.is-active{
-						display: block;
-					}
-					.slide-list__item{
+					display: block;
+					.list__item{
 						margin-top: 0;
 						font-size: 1.4rem;
 						letter-spacing: normal;
@@ -260,7 +341,25 @@
 					width: calc(50% - 15px);
 					margin: 0;
 					&:nth-child(n+3){
-						margin-top: 20px;
+						margin-top: 60px;
+					}
+					.link{
+						.sub-tit{
+							&.create, &.update{
+								&::before,&::after{
+								   top: auto;
+								   bottom: -30px;
+								   margin-left: -42px;
+								}
+							}
+							&.create{
+								&.update{
+									&::after{
+										margin-left: 5px;
+									}
+								}
+							}
+						}
 					}
 				}
 			}
@@ -268,12 +367,45 @@
 	}
 	@media (min-width: 800px){
 		&__box{
-			.slide-list{
+			.list{
 				justify-content: flex-start;
 				gap: 0 30px;
 				&.text-list{
-					.slide-list__item{
+					.list__item{
 						margin: 0;
+						.link{
+							&.create, &.update{
+								position: relative;
+								padding-left: 50px;
+								&::before,&::after{
+								   top: 12px;
+								   width: 38px;
+								   height: 22px;
+								   margin-top: -11px;
+								}
+							}
+							&.create{
+								&::before{
+									top: 50%;
+								}
+								&.update{
+									&::after{
+										top: 34px;
+										margin: 0;
+									}
+								}
+							}
+							&.update{
+								&::after{
+									top: 50%;
+								}
+								&.create{
+									&::before{
+										top: 8px;
+									}
+								}
+							}
+						}
 					}
 				}
 				&__item{
@@ -283,7 +415,17 @@
 						margin-top: 0;
 					}
 					&:nth-child(n+4){
-						margin-top: 40px;
+						margin-top: 60px;
+					}
+					.link{
+						.sub-tit{
+							&.create, &.update{
+								&::before,&::after{
+								   width: 38px;
+								   height: 22px;
+								}
+							}
+						}
 					}
 				}
 			}
