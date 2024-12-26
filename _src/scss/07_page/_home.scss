@@ -82,6 +82,40 @@
 /* .home-works
 ================================================ */
 #home .home-works{
+	&__lead{
+		margin-top: 30px;
+		.ico{
+			display: inline-block;
+			position: relative;
+			top: -3px;
+			margin-right: 2px;
+			padding: 4px 5px 2px;
+			border-radius: 5px;
+			line-height: 1;
+			color: #fff;
+			&.create{
+				background-color: #ec8f15;
+			}
+			&.update{
+				background-color: #061df0;
+			}
+		}
+		.note{
+			display: inline-block;
+			position: relative;
+			margin-top: 10px; 
+			padding-left: 15px; 
+			font-size:  clamp(1.1rem, 4vw, 1.2rem);
+			&::before{
+				display: block;
+				content: "※";
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-size:  clamp(1.1rem, 4vw, 1.2rem);
+			}
+		}
+	}
 	&__box{
 		margin-top: 30px;
 		.tab-scroll{
@@ -116,6 +150,9 @@
 					}
 				}
 			}
+		}
+		.lead{
+			margin-top: 15px;
 		}
 		.list-box{
 			&.is-active{
@@ -252,8 +289,6 @@
 								content: "管理";
 								background-color: #061df0;
 							}
-							&.create{
-							}
 						}
 					}
 				}
@@ -366,7 +401,12 @@
 		}
 	}
 	@media (min-width: 800px){
+	&__lead{
+		max-width: 740px;
+		margin: 40px auto 0;
+	}
 		&__box{
+			margin-top: 60px;
 			.list{
 				justify-content: flex-start;
 				gap: 0 30px;
