@@ -36,47 +36,19 @@ a {
 		}
 	}
 }
-.u-alpha {
-	display: block;
-	text-decoration: none;
-	@include m.mq {
-		@include m.trans;
-		&:hover {
-			opacity: .7;
-		}
-	}
-}
+
 img {
 	width: 100%;
 	height: auto;
 }
 
-/* pc <--> sp
--------------------------------------- */
-.u-media-query {
-	display: none;
-	font-family: 'sp';
-	@include m.mq {
-		font-family: 'pc';
-	}
-}
-.u-view-pc {
-	@include m.mq(sp) {
-		display: none !important;
-	}
-}
-.u-view-sp {
-	@include m.mq {
-		display: none !important;
-	}
-}
-
 .l-wrapper {
 	position: relative;
 }
-.l-container {
-	padding: 20px 0 80px;
+
+.l-contents {
+	padding: 40px 0 80px;
 	@include m.mq {
-		padding: 30px 0 80px;
+		padding: 100px 0 140px;
 	}
 }

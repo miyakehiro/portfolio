@@ -193,18 +193,12 @@ if ( $('.js-toggle-trigger').length > 0 ){
 	    // fade in
 	    window.onload = function() {
 	        setTimeout(function(){
-	            var layout = $('.js-media-query').css('font-family').replace(/"/g, '');
-	            if(layout === "pc") {
-	                scroll_effect();
-	                $('.js-anime').addClass('is_animated');
-	            }
+				scroll_effect();
+				$('.js-anime').addClass('is_animated');
 	        },500);
 	    }
 	    $(window).scroll(function() {
-	        var layout = $('.js-media-query').css('font-family').replace(/"/g, '');
-	        if(layout === "pc") {
-	            scroll_effect();
-	        }
+			scroll_effect();
 	    });
 
 	    //fadein
@@ -213,7 +207,7 @@ if ( $('.js-toggle-trigger').length > 0 ){
 	            var elemPos = $(this).offset().top,
 	                scrollPos = $(window).scrollTop(),
 	                windowHeight = $(window).height();
-	            if ( scrollPos > elemPos - windowHeight + 150 ) {
+	            if ( scrollPos > elemPos - windowHeight ) {
 	                $(this).addClass('is_animated');
 	            }
 	        });

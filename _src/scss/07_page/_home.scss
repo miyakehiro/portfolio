@@ -3,12 +3,19 @@
 
 #home{
 	.sec{
-		padding: 60px 0;
+		padding-bottom: 60px;
+		+.sec{
+			padding: 60px 0;
+		}
 		@include m.mq(tb){
-			padding: 85px 0;
+			+.sec{
+				padding: 85px 0;
+			}
 		}
 		@include m.mq(pc){
-			padding: 120px 0;
+			+.sec{
+				padding: 120px 0;
+			}
 		}
 	}
 }
@@ -75,14 +82,51 @@
 /* .home-works
 ================================================ */
 #home .home-works{
+	&__lead{
+		margin-top: 30px;
+		.ico{
+			display: inline-block;
+			position: relative;
+			top: -3px;
+			margin-right: 2px;
+			padding: 4px 5px 2px;
+			border-radius: 5px;
+			line-height: 1;
+			color: #fff;
+			&.create{
+				background-color: #ec8f15;
+			}
+			&.update{
+				background-color: #061df0;
+			}
+		}
+		.note{
+			display: inline-block;
+			position: relative;
+			margin-top: 10px; 
+			padding-left: 15px; 
+			font-size:  clamp(1.1rem, 4vw, 1.2rem);
+			&::before{
+				display: block;
+				content: "※";
+				position: absolute;
+				top: 0;
+				left: 0;
+				font-size:  clamp(1.1rem, 4vw, 1.2rem);
+			}
+		}
+	}
 	&__box{
 		margin-top: 30px;
+		.tab-scroll{
+			overflow-x: scroll;
+		}
 		.tab-list{
 			display: flex;
 			box-sizing: border-box;
+			width: 500px;
+			gap: 0 25px;
 			&-item{
-				width: 25%;
-				text-align: center;
 				position: relative;
 				padding-bottom: 5px;
 				&.is-active{
@@ -107,8 +151,82 @@
 				}
 			}
 		}
-		.slide-list{
+		.lead{
+			margin-top: 15px;
+		}
+		.list-box{
+			&.is-active{
+				display: block;
+			}
+		}
+		.list{
 			margin: 15px -20px 0;	
+			&.text-list{
+				.list__item{
+					width: auto;
+					border-bottom: 1px solid #333;
+					.link{
+						text-decoration: underline;
+						&::before{
+							display: none;
+							position: static;
+						}
+						&:hover{
+							text-decoration: none;
+						}						
+						.sub-tit{
+							display: flex;
+							flex-direction: column;
+							justify-content: center;
+							height: 64px;
+							margin-top: 0;
+							text-align: left;
+							&.create, &.update{
+								padding-left: 45px;
+								&::before,&::after{
+								top: 12px;
+								left: 0;
+								width: 38px;
+								height: 18px;
+								margin-top: -9px;
+								margin-left: 0;
+								}
+							}
+							&.create{
+								&::before{
+									top: 50%;
+									left: 0;
+								}
+								&.update{
+									&::after{
+										top: 33px;
+										margin: 0;
+									}
+								}
+							}
+							&.update{
+								&::after{
+									top: 50%;
+									left: 0;
+								}
+								&.create{
+									&::before{
+										top: 12px;
+										margin: 0;
+									}
+								}
+							}
+						}
+					}
+					.link[href=""]{
+						text-decoration: none;
+						pointer-events: none;
+					}
+				}
+			}
+			.slick-track{
+				padding-bottom: 30px;
+			}
 			&__item{
 				margin: 0 10px;
 				.link{
@@ -135,6 +253,43 @@
 					.sub-tit{
 						margin-top: 10px;
 						text-align: center;
+						line-height: 1.5;
+						&.create, &.update{
+							position: relative;
+							&::before,&::after{
+							   display: flex;
+							   align-items: center;
+							   justify-content: center;
+							   position: absolute;
+							   top: 30px;
+							   left: 50%;
+							   width: 38px;
+							   height: 20px;
+							   margin-left: -44px;
+							   border-radius: 5px;
+							   font-size: clamp(1rem, 4vw, 1.2rem);
+							   line-height: 1;
+							   text-align: center;
+							   color: #fff;
+							}
+						}
+						&.create{
+							&::before{
+								content: "製作";
+								background-color: #ec8f15;
+							}
+							&.update{
+								&::after{
+									margin-left: 4px;
+								}
+							}
+						}
+						&.update{
+							&::after{
+								content: "管理";
+								background-color: #061df0;
+							}
+						}
 					}
 				}
 			}
@@ -159,6 +314,7 @@
 				}
 			}
 			.slick-dots{
+				bottom: -50px;
 				&>li{
 					&:only-child{
 						display: none;
@@ -188,29 +344,110 @@
 	@include m.mq(tb){
 		&__box{
 			margin-top: 40px;
-			.slide-list{
+			.tab-scroll{
+				overflow-x: auto;
+			}
+			.tab-list{
+				width: auto;
+				gap: 0;
+				&-item{
+					width: 20%;
+					text-align: center;
+				}
+			}
+			.list{
+				display: flex;
 				flex-wrap: wrap;
-				justify-content: space-between;
 				box-sizing: border-box;
-				gap: 0 15px;
+				justify-content: space-between;
 				margin: 20px 0 0;
-				&.is-active{
-					display: flex;
+				&.text-list{
+					display: block;
+					.list__item{
+						margin-top: 0;
+						font-size: 1.4rem;
+						letter-spacing: normal;
+						.link{
+							text-decoration: underline;
+						}
+					}
 				}
 				&__item{
 					width: calc(50% - 15px);
 					margin: 0;
 					&:nth-child(n+3){
-						margin-top: 20px;
+						margin-top: 60px;
+					}
+					.link{
+						.sub-tit{
+							&.create, &.update{
+								&::before,&::after{
+								   top: auto;
+								   bottom: -30px;
+								   margin-left: -42px;
+								}
+							}
+							&.create{
+								&.update{
+									&::after{
+										margin-left: 5px;
+									}
+								}
+							}
+						}
 					}
 				}
 			}
 		}
 	}
 	@media (min-width: 800px){
+	&__lead{
+		max-width: 740px;
+		margin: 40px auto 0;
+	}
 		&__box{
-			.slide-list{
-				gap: 0 20px;
+			margin-top: 60px;
+			.list{
+				justify-content: flex-start;
+				gap: 0 30px;
+				&.text-list{
+					.list__item{
+						margin: 0;
+						.link{
+							&.create, &.update{
+								position: relative;
+								padding-left: 50px;
+								&::before,&::after{
+								   top: 12px;
+								   width: 38px;
+								   height: 22px;
+								   margin-top: -11px;
+								}
+							}
+							&.create{
+								&::before{
+									top: 50%;
+								}
+								&.update{
+									&::after{
+										top: 34px;
+										margin: 0;
+									}
+								}
+							}
+							&.update{
+								&::after{
+									top: 50%;
+								}
+								&.create{
+									&::before{
+										top: 8px;
+									}
+								}
+							}
+						}
+					}
+				}
 				&__item{
 					width: calc(33.333% - 20px);
 					margin: 0;
@@ -218,7 +455,17 @@
 						margin-top: 0;
 					}
 					&:nth-child(n+4){
-						margin-top: 40px;
+						margin-top: 60px;
+					}
+					.link{
+						.sub-tit{
+							&.create, &.update{
+								&::before,&::after{
+								   width: 38px;
+								   height: 22px;
+								}
+							}
+						}
 					}
 				}
 			}
@@ -292,125 +539,6 @@
 					}
 				}
 			}
-		}
-	}
-}
-
-
-/* .home-contact
-================================================ */
-#home .home-contact{
-	&__box{
-		margin-top: 30px;
-		.table{
-			tbody{
-				tr{
-					border-bottom: 1px solid #333;
-					+tr{
-						margin-top: 30px;
-					}
-					
-					&.zip,&.address{
-						display: flex;
-						gap: 0 5px;
-						border: none;
-						margin-top: 30px;
-						th{
-							width: 0;
-							margin-top: 0;
-						}
-						td{
-							margin-top: 0;
-							input{
-								border-bottom: 0.5px solid #333;	
-							}
-							select{
-								width: 90px;
-								border-bottom: 1px solid #333;	
-							}
-							div{
-								+div{
-									margin-top: 15px;
-								}
-							}
-						}
-					}
-					&.zip{
-						th{
-							width: 15px;
-						}
-						td{
-							width: 80px;
-						}
-					}
-					&.address{
-						gap: 0 10px;
-						th{
-							width: 40px;
-						}
-						td{
-							width: calc(100% - 40px);
-							p{
-								font-weight: 700;
-							}
-						}
-					}
-					th{
-						font-size: 1.4rem;
-						font-weight: 700;
-						.require{
-							position: relative;
-							top: -8px;
-							left: 5px;
-							background: #ad2d33;
-							border-radius: 4px;
-							padding: 2px 5px 3px;
-							font-size: 1rem;
-							line-height: 1;
-							color: #fff;
-						}
-					}
-					td{
-						margin-top: 5px;
-						font-size: 1.4rem;
-						div{
-							position: relative;
-							width: 90px;
-							&::after{
-								content: "";
-								position: absolute;
-								right: 10px;
-								top: 36px;
-								width: 5px;
-								height: 5px;
-								border-top: 2px solid #ccc;
-								border-left: 2px solid #ccc;
-								transform: translateY(-50%) rotate(				-135deg);
-								font-size: 10px;
-								pointer-events: none;
-							}
-							+div{
-								width: auto;
-								margin-top: 15px;
-								position: static;
-								&::after{
-									display: none;
-								}
-							}
-						}
-						input,textarea{
-							width: 100%;
-						}
-
-					}
-				}
-			}
-		}
-	}
-	@include m.mq(tb){
-		&__box{
-			max-width: 600px;
-			margin: 40px auto 0;
 		}
 	}
 }

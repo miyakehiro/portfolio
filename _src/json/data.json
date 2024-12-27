@@ -3,8 +3,8 @@
         "header": {
             "index": {
                 "title":"my page",
-                "description": "イイダリョウのメタ言語実験室",
-                "keywords": "イイダリョウのメタ言語実験室",
+                "description": "このサイトは、エンジニア 三宅のポートフォリオサイトです。これまで手掛けたwebサイト、自身のスキル・経歴をまとめています",
+                "keywords": "フロントエンドエンジニア,コーダー,コーディング,HTML,CSS,SCSS,Javascript,PHP,WordPress,ポートフォリオ",
                 "slug": "home",
                 "baseUrl": "",
                 "cssSrc": "css",
