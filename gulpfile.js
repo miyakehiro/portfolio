@@ -20,7 +20,7 @@ const sass = gulpSass(sassCompiler);
 
 // 入出力ファイル指定
 const src = {
-  ejs: ['./_src/**/*.ejs', '!' + './_src/**/_*.ejs'],
+  ejs: ['./_src/**/*.ejs'],
   json: ['./_src/json/**/*.json'],
   sass: './_src/scss/**/*.scss',
   js: './_src/js/*.js',
@@ -48,7 +48,7 @@ const connectSync = (done) => {
 
 // HTMLコンパイル（EJS）
 const compileHtml = () => {
-  const data = JSON.parse(fs.readFileSync('./_src/json/data.json'));
+  const data = JSON.parse(fs.readFileSync('./_src/json/data.json', 'utf8'));
   return gulp
     .src(src.ejs)
     .pipe(plumber({ errorHandler: notify.onError('Error: <%= error.message %>') }))
@@ -109,7 +109,6 @@ const watchFiles = (done) => {
   gulp.watch(src.sass, compileSass);
   gulp.watch(src.js, compileJs);
   gulp.watch(src.image, images);
-  gulp.watch('dist/**/*.html').on('change', browserSync.reload);
   done();
 };
 
