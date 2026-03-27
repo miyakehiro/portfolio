@@ -17,7 +17,7 @@
                 const imgHtml = item.img ? `<div class="img"><img src="${item.img}" alt="${item.title}"></div>` : '';
                 html += `
                 <li class="list__item">
-                    <a class="link" href="${item.link}">
+                    <a class="link" href="${item.link}" target="_blank">
                         ${imgHtml}
                         <h3 class="sub-tit ${item.create} ${item.update}">${item.title}</h3>
                     </a>

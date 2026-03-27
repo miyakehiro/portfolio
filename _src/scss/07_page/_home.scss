@@ -51,7 +51,7 @@
 			margin: 0 auto;
 		}
 		.txt{
-			margin-top: 25px;
+			// margin-top: 25px;
 			line-height: 2;
 		}
 	}
@@ -72,7 +72,7 @@
 			}
 			.txt{
 				margin: 0;
-				width: calc(65% - 15px);
+				// width: calc(65% - 15px);
 			}	
 		}
 	}
@@ -87,9 +87,9 @@
 		.ico{
 			display: inline-block;
 			position: relative;
-			top: -3px;
+			top: -2px;
 			margin-right: 2px;
-			padding: 4px 5px 2px;
+			padding: 3px 4px 4px;
 			border-radius: 5px;
 			line-height: 1;
 			color: #fff;

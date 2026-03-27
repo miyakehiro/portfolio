@@ -3,7 +3,7 @@
         "header": {
             "index": {
                 "title":"my page",
-                "description": "このサイトは、エンジニア 三宅のポートフォリオサイトです。これまで手掛けたwebサイト、自身のスキル・経歴をまとめています",
+                "description": "このサイトは、フォリオサイトです。これまで手掛けたwebサイト、自身のスキル・経歴をまとめています",
                 "keywords": "フロントエンドエンジニア,コーダー,コーディング,HTML,CSS,SCSS,Javascript,PHP,WordPress,ポートフォリオ",
                 "slug": "home",
                 "baseUrl": "",
