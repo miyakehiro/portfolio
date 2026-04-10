@@ -1025,7 +1025,6 @@ animation
   margin: 0 auto;
 }
 #home .home-profile__box .txt {
-  margin-top: 25px;
   line-height: 2;
 }
 @media all and (min-width: 600px) {
@@ -1046,7 +1045,6 @@ animation
   }
   #home .home-profile__box .txt {
     margin: 0;
-    width: calc(65% - 15px);
   }
 }
 
@@ -1058,9 +1056,9 @@ animation
 #home .home-works__lead .ico {
   display: inline-block;
   position: relative;
-  top: -3px;
+  top: -2px;
   margin-right: 2px;
-  padding: 4px 5px 2px;
+  padding: 3px 4px 4px;
   border-radius: 5px;
   line-height: 1;
   color: #fff;
