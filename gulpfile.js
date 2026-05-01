@@ -10,6 +10,7 @@ import rename from 'gulp-rename';
 import imagemin from 'gulp-imagemin';
 import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminPngquant from 'imagemin-pngquant';
+import webp from 'gulp-webp';
 import imageminSvgo from 'imagemin-svgo';
 import gulpSass from 'gulp-sass';
 import * as sassCompiler from 'sass';
@@ -86,26 +87,27 @@ const compileJs = () => {
     .pipe(browserSync.stream());
 };
 
-// 画像圧縮
+// 画像圧縮 & WebP変換
 const images = () => {
   return gulp
-    .src(src.image, { encoding: false }) // ★ここに { encoding: false } を追加
+    .src(src.image, { encoding: false })
     .pipe(plumber())
+    // --- 1. 通常の圧縮画像を書き出し ---
     .pipe(
       imagemin([
         imageminMozjpeg({ quality: 80 }),
         imageminPngquant(),
         imageminSvgo({
-          plugins: [
-            {
-              name: 'removeViewBox',
-              active: false
-            }
-          ]
+          plugins: [{ name: 'removeViewBox', active: false }]
         }),
       ])
     )
-    .pipe(gulp.dest(dst.image)) // ★destの前にstreamがあると不具合が起きやすいので入れ替え
+    .pipe(gulp.dest(dst.image)) // ここで一旦、圧縮されたJPG/PNGが保存される
+
+    // --- 2. そのままWebPに変換して書き出し ---
+    .pipe(webp()) // 前の工程で圧縮されたデータをそのままWebP化
+    .pipe(gulp.dest(dst.image)) // 同じフォルダに .webp として保存
+
     .pipe(browserSync.stream());
 };
 
