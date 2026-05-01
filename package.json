@@ -15,6 +15,7 @@
     "gulp-sass": "^6.0.1",
     "gulp-sass-glob": "^1.1.0",
     "gulp-uglify": "^3.0.2",
+    "gulp-webp": "^5.1.0",
     "imagemin-mozjpeg": "^10.0.0",
     "imagemin-pngquant": "^10.0.0",
     "imagemin-svgo": "^12.0.0",

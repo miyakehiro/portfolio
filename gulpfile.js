@@ -89,17 +89,24 @@ const compileJs = () => {
 // 画像圧縮
 const images = () => {
   return gulp
-    .src(src.image)
+    .src(src.image, { encoding: false }) // ★ここに { encoding: false } を追加
     .pipe(plumber())
     .pipe(
       imagemin([
         imageminMozjpeg({ quality: 80 }),
         imageminPngquant(),
-        imageminSvgo({ plugins: [{ removeViewBox: false }] }),
+        imageminSvgo({
+          plugins: [
+            {
+              name: 'removeViewBox',
+              active: false
+            }
+          ]
+        }),
       ])
     )
-    .pipe(browserSync.stream())
-    .pipe(gulp.dest(dst.image));
+    .pipe(gulp.dest(dst.image)) // ★destの前にstreamがあると不具合が起きやすいので入れ替え
+    .pipe(browserSync.stream());
 };
 
 // ファイル監視
