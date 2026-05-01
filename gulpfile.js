@@ -12,7 +12,7 @@ import imageminMozjpeg from 'imagemin-mozjpeg';
 import imageminPngquant from 'imagemin-pngquant';
 import imageminSvgo from 'imagemin-svgo';
 import gulpSass from 'gulp-sass';
-import sassCompiler from 'sass';
+import * as sassCompiler from 'sass';
 
 const sass = gulpSass(sassCompiler);
 
