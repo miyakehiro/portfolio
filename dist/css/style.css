@@ -1045,17 +1045,15 @@ animation
 #home .home-works__box {
   margin-top: 30px;
 }
-#home .home-works__box .tab-scroll {
-  overflow-x: scroll;
-}
 #home .home-works__box .tab-list {
   display: flex;
   box-sizing: border-box;
-  width: 500px;
   gap: 0 25px;
 }
 #home .home-works__box .tab-list-item {
   position: relative;
+  width: 20%;
+  text-align: center;
   padding-bottom: 5px;
 }
 #home .home-works__box .tab-list-item.is-active {
@@ -1252,10 +1250,6 @@ animation
   #home .home-works__box .tab-list {
     width: auto;
     gap: 0;
-  }
-  #home .home-works__box .tab-list-item {
-    width: 20%;
-    text-align: center;
   }
   #home .home-works__box .list {
     display: flex;

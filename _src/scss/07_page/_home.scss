@@ -119,15 +119,17 @@
 	&__box{
 		margin-top: 30px;
 		.tab-scroll{
-			overflow-x: scroll;
+			// overflow-x: scroll;
 		}
 		.tab-list{
 			display: flex;
 			box-sizing: border-box;
-			width: 500px;
+			// width: 500px;
 			gap: 0 25px;
 			&-item{
 				position: relative;
+				width: 20%;
+				text-align: center;
 				padding-bottom: 5px;
 				&.is-active{
 					border-bottom: 2px solid #565656;
@@ -351,8 +353,8 @@
 				width: auto;
 				gap: 0;
 				&-item{
-					width: 20%;
-					text-align: center;
+					// width: 20%;
+					// text-align: center;
 				}
 			}
 			.list{
