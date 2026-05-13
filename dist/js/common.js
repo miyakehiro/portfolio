@@ -127,6 +127,7 @@ $(window).on('scroll',function(){
 		$navCon.addClass(class_open);
 		$logo.addClass(class_open);
 		$navBtn.addClass(class_open);
+		$navBtn.attr('aria-expanded', 'true');
 		$navChara.text('CLOSE');
 	}
 	function funcNaviReset(){
@@ -134,6 +135,7 @@ $(window).on('scroll',function(){
 		$logo.removeClass(class_open);
 		$navCon.removeClass(class_open);
 		$navBtn.removeClass(class_open);
+		$navBtn.attr('aria-expanded', 'false');
 		$navChara.text('MENU');
 	}
 	$navBtn.on('click',function(){
