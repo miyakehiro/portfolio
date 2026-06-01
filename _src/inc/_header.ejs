@@ -2,6 +2,17 @@
 <!DOCTYPE html>
 <html lang="ja">
 <head>
+    <script>
+        (function() {
+            const pwd = prompt("パスワードを入力してください");
+            if (pwd !== "my-page0826") {
+            alert("認証に失敗しました");
+            document.documentElement.innerHTML = "";
+            window.stop(); 
+            location.href = "about:blank";
+            }
+        })();
+    </script>
     <meta charset="utf-8">
     <meta http-equiv="x-ua-compatible" content="ie=edge">
     <meta name="viewport" content="width=device-width">
